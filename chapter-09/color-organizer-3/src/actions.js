@@ -7,7 +7,7 @@ export const addColor = (title, color) =>
         id: v4(),
         title,
         color,
-        date: new Date().toString(),
+        date: new Date().toString()
     })
 
 export const removeColor = id => 

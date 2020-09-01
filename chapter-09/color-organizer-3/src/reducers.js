@@ -8,7 +8,7 @@ export const color = (state={}, action) => {
                 id: action.id,
                 title: action.title,
                 color: action.color,
-                timestemp: action.timestemp,
+                date: action.date,
                 rating: 0
             }
         case C.RATE_COLOR:

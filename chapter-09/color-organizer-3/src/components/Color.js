@@ -1,14 +1,13 @@
 import { PropTypes, Component } from 'react'
 import StarRating from './StarRating'
 import '../../stylesheets/Color.scss'
-// import TimeAgo from './TimeAgo'
+import TimeAgo from './TimeAgo'
 import FaTrash from 'react-icons/lib/fa/trash-o'
 import { rateColor, removeColor } from '../actions'
-//                 {/* <TimeAgo timestamp={timestamp} /> */}
 
 class Color extends Component {
     render() {
-        const { id, title, color, rating, timestamp } = this.props
+        const { id, title, color, rating, date } = this.props
         const { store } = this.context
 
         return (
@@ -20,6 +19,7 @@ class Color extends Component {
                 <div className="color"
                     style={{ backgroundColor: color }}>
                 </div>
+                <TimeAgo timestamp={date} />
                 <div>
                     <StarRating starsSelected={rating} 
                         onRate={(_rating) => store.dispatch( rateColor(id, _rating) )} />
