@@ -7,9 +7,8 @@ export const addColor = (title, color) =>
         id: v4(),
         title,
         color,
-        timestamp: new Date().toString(),
+        date: new Date().toString(),
     })
-
 
 export const removeColor = id => 
     ({
@@ -23,3 +22,12 @@ export const rateColor = (id, rating) =>
         id,
         rating
     })
+
+
+export const sortColors = (sortBy) => {
+    return ({
+        type: C.SORT_COLORS,
+        sortBy: sortBy
+    })
+
+}

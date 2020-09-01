@@ -7,11 +7,7 @@ window.React = React
 
 const store = storeFactory()
 
-const renderApp = () =>
-    render(
-        <App store={store} />,
-        document.getElementById('react-container')
-    )
-
-store.subscribe(renderApp)
-renderApp()
+render(
+    <App store={store} />,
+    document.getElementById('react-container')
+)

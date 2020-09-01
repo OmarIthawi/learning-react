@@ -1,4 +1,5 @@
 import C from './constants'
+import SORT_C from './sortConstants'
 
 export const color = (state={}, action) => {
     switch (action.type) {
@@ -42,6 +43,11 @@ export const colors = (state=[], action) => {
     }
 }
 
-// export const sort = (state=C.SORTED_BY_DATE, action) => {
-//     return ""
-// }
+export const sort = (state=SORT_C.date, action) => {
+    switch (action.type) {
+        case C.SORT_COLORS:
+            return action.sortBy
+        default:
+            return state
+    }
+}
