@@ -2,7 +2,6 @@ env:
   browser: true
   commonjs: true
   es6: true
-  jest: true
 extends: 'eslint:recommended'
 parserOptions:
   ecmaFeatures:
@@ -13,15 +12,14 @@ plugins:
   - react
 rules:
   indent:
-    - 2
+    - error
     - 4
-    - SwitchCase: 1
   linebreak-style:
     - error
     - unix
-  no-unused-vars: 0
-  no-console: 0
-globals:
-    process: true
-    __dirname: true
-    _testColors: true
+  quotes:
+    - error
+    - single
+  semi:
+    - error
+    - never
