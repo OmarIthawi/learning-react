@@ -36,4 +36,13 @@ describe('addColor', () => {
 
     it("should add a new color", () =>
        expect(store.getState().colors.length).toBe(4))
+
+    it("should add a unique guid id", () =>
+       expect(store.getState().colors[3].id.length).toBe(36))
+
+    it("set rating to 0", () =>
+       expect(store.getState().colors[3].rating).toBe(0))
+
+    it("set timestamp", () =>
+       expect(store.getState().colors[3].timestamp).toBeDefined())
 })
