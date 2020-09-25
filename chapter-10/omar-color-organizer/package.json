@@ -3,6 +3,10 @@
   "version": "4.0.0",
   "description": "A sample React application",
   "main": "index.js",
+  "jest": {
+    "setupFiles": ["./__tests__/global.js"],
+    "modulePathIgnorePatterns": ["global.js"]
+  },
   "scripts": {
     "build": "./node_modules/.bin/webpack --progress",
     "prestart": "npm run build",

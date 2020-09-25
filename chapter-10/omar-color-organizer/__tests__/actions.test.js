@@ -1,7 +1,6 @@
 import C from '../src/constants'
 import storeFactory from '../src/store'
 import {sortColors, addColor, rateColor, removeColor} from '../src/actions'
-import global from './global'
 
 describe('addColor', () => {
     let store
