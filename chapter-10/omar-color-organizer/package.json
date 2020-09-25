@@ -5,12 +5,15 @@
   "main": "index.js",
   "jest": {
     "setupFiles": ["./__tests__/global.js"],
-    "modulePathIgnorePatterns": ["global.js"]
+    "modulePathIgnorePatterns": ["global.js"],
+    "moduleNameMapper": {
+      "\\.(scss)$": "<rootDir>/node_modules/jest-css-modules"
+    }
   },
   "scripts": {
     "build": "./node_modules/.bin/webpack --progress",
     "prestart": "npm run build",
-    "test": "npx jest __tests__/actions.test.js",
+    "test": "npx jest",
     "start": "opener http://localhost:3000 & ./node_modules/.bin/httpster -p 3000 -d ./dist"
   },
   "keywords": [
