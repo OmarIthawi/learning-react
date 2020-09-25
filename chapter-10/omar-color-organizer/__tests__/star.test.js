@@ -10,13 +10,13 @@ describe('<Star /> component', () => {
         shallow( <Star selected={true} /> ).find('div.star.selected').length
     ).toBe(1))
 
-    // it('invokes onClick', () => {
-    //     const _click = jest.fn()
-    //     expect(_click).toBeCalled()
-    //
-    //     shallow(<Star onClick={_click} />)
-    //         .find('dev.star')
-    //         .simulate('click')
-    //
-    // })
+    it('invokes onClick', () => {
+        const _click = jest.fn()
+
+        shallow(<Star onClick={_click} />)
+            .find('div.star')
+            .simulate('click')
+
+        expect(_click).toBeCalled()
+    })
 })
