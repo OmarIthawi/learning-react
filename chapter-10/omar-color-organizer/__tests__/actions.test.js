@@ -1,6 +1,7 @@
 import C from '../src/constants'
 import storeFactory from '../src/store'
 import { sortColors, addColor, rateColor, removeColor } from '../src/actions'
+import global from './global'
 
 describe("Action Creators", () => {
 
@@ -52,69 +53,4 @@ describe("Action Creators", () => {
             expect(store.getState().colors[3].timestamp).toBeDefined())
 
     })
-
-    describe("rateColor", () => {
-
-        let colors = [
-            {
-                id: '8658c1d0-9eda-4a90-95e1-8001e8eb6036',
-                title: "Rad Red",
-                color: "#FF0000",
-                rating: 3,
-                timestamp: "Sat Mar 12 2016 16:12:09 GMT-0800 (PST)"
-            }
-        ]
-
-        beforeAll(() => {
-            store = storeFactory({colors})
-            store.dispatch(rateColor('8658c1d0-9eda-4a90-95e1-8001e8eb6036', 5))
-        })
-
-        it("should rate the color", () => expect(store.getState().colors[0].rating).toEqual(5))
-
-    })
-
-    describe("removeColor", () => {
-
-        const colors = [
-            {
-                id: '8658c1d0-9eda-4a90-95e1-8001e8eb6036',
-                title: "Rad Red",
-                color: "#FF0000",
-                rating: 3,
-                timestamp: "Sat Mar 12 2016 16:12:09 GMT-0800 (PST)"
-            }
-        ]
-
-        beforeAll(() => {
-            store = storeFactory({colors})
-            store.dispatch(removeColor('8658c1d0-9eda-4a90-95e1-8001e8eb6036'))
-        })
-
-        it("should remove the color", () =>
-            expect(store.getState().colors.length).toEqual(0))
-
-    })
-
-    describe("sortColors", () => {
-
-        beforeAll(() => store = storeFactory())
-
-        it("can dispatch sort colors", () => {
-            store.dispatch(sortColors("SORTED_BY_RATING"))
-            expect(store.getState().sort).toEqual("SORTED_BY_RATING")
-        })
-
-        it("can sort by title", () => {
-            store.dispatch(sortColors("SORTED_BY_TITLE"))
-            expect(store.getState().sort).toEqual("SORTED_BY_TITLE")
-        })
-
-        it("(default) sorts colors by date", () => {
-            store.dispatch(sortColors())
-            expect(store.getState().sort).toEqual("SORTED_BY_DATE")
-        })
-
-    })
-
 })
